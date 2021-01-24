@@ -1,0 +1,15 @@
+(env
+ (dev
+  (flags
+   (:standard -w -3-9-32-27-39 -warn-error -27-33))))
+
+(executable
+ (name main)
+ (libraries str menhirLib base))
+
+(menhir
+ (modules Parser)
+ (flags --explain --table))
+
+(ocamllex
+ (modules Lexer))

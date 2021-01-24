@@ -4,7 +4,7 @@ run: main.byte
 	./$^ test
 
 main.byte:
-	ocamlbuild -r -cflag -bin-annot -cflag -g -lflag -g -pkg menhirLib -pkg str -use-menhir -yaccflag --explain -yaccflag --table main.byte
+	ocamlbuild -classic-display -r -cflag -bin-annot -cflag -g -lflag -g -pkg menhirLib -pkg str -use-menhir -yaccflag --explain -yaccflag --table main.byte
 
 
 build-js:
@@ -17,3 +17,6 @@ _build.js/webpage.byte: build-js
 
 mlsub.js: _build.js/webpage.byte
 	js_of_ocaml $^ -o $@
+
+clean:
+	$(RM) -r _build
