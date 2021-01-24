@@ -1,3 +1,3 @@
 type env = unit
 
-let gamma0 = ()
+val gamma0 : env

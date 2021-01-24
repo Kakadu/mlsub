@@ -1,4 +1,4 @@
-type 'a arguments = 'a
+type 'a arguments = 'a [@@deriving show]
 
 type rexp =
   | Var of Symbol.t
@@ -17,4 +17,4 @@ type rexp =
   | Object of (Symbol.t * exp) list
   | GetField of exp * Symbol.t
 
-and exp = Location.t * rexp
+and exp = (Location.t[@opaque]) * rexp [@@deriving show { with_path = false }]

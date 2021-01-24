@@ -1,11 +1,13 @@
 (env
  (dev
   (flags
-   (:standard -w -3-9-32-27-39 -warn-error -27-33))))
+   (:standard -w -3-9-32-27-39 -warn-error -26-27-33))))
 
 (executable
  (name main)
- (libraries str menhirLib base))
+ (libraries str menhirLib base)
+ (preprocess
+  (pps ppx_deriving.show)))
 
 (menhir
  (modules Parser)
